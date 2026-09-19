@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <ros2_control name="GazeboSimSystem" type="system">
+        <!-- This tells ros2_control to use the Gazebo simulation hardware interface -->
+        <hardware>
+            <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+        </hardware>
+
+        <!-- Xacro macro to avoid copy-pasting the interface definitions 6 times -->
+        <xacro:macro name="configure_joint" params="joint_name">
+            <joint name="${joint_name}">
+                <command_interface name="position">
+                    <param name="min">-3.14159</param>
+                    <param name="max">3.14159</param>
+                </command_interface>
+                <state_interface name="position"/>
+                <state_interface name="velocity"/>
+            </joint>
+        </xacro:macro>
+
+        <xacro:configure_joint joint_name="joint_1"/>
+        <xacro:configure_joint joint_name="joint_2"/>
+        <xacro:configure_joint joint_name="joint_3"/>
+        <xacro:configure_joint joint_name="joint_4"/>
+        <xacro:configure_joint joint_name="joint_5"/>
+        <xacro:configure_joint joint_name="joint_6"/>
+
+    </ros2_control>
+
+    <!-- This plugin bridges Gazebo Harmonic to the ros2_control system we defined above -->
+    <gazebo>
+        <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+            <parameters>$(find industrial_robot_simulation)/config/ros2_controllers.yaml</parameters>
+        </plugin>
+    </gazebo>
+
+</robot>

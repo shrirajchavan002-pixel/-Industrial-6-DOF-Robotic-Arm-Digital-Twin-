@@ -1,7 +1,26 @@
+# ROS 2 / Colcon
 build/
 install/
 log/
-.vscode/
-*.swp
-*.pyc
+
+# Python
 __pycache__/
+*.py[cod]
+*.pyo
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# ROS / generated files
+*.gv
+*.pdf
+
+# Debug / temporary files
+find_tuple_bug.py

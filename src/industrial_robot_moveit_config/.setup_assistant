@@ -1,0 +1,10 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: industrial_robot_description
+    relative_path: urdf/industrial_robot.urdf.xacro
+  srdf:
+    relative_path: config/industrial_6dof.srdf
+  package_settings:
+    author_name: shriraj
+    author_email: student@test.com
+    generated_timestamp: 1789229718
