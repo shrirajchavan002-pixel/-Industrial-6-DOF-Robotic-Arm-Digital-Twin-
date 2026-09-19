@@ -85,7 +85,8 @@ Tool/end-effector frame
 TF2 frame hierarchy
 
 TF2 Frame Tree
-
+```text
+         
 world
 └── base_link
     └── link_1
@@ -96,6 +97,7 @@ world
                         └── link_6
                             └── tool0
 
+```
 Gazebo Simulation
 
 The robotic arm is simulated using Gazebo Sim.
