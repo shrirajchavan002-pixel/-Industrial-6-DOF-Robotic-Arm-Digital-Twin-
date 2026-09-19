@@ -70,6 +70,7 @@ The architecture is structured with future migration to physical hardware in min
                     │   6-DOF Robot       │
                     └─────────────────────┘
 
+```
 Robot Description
 
 The robot model is implemented using modular URDF/Xacro files.
