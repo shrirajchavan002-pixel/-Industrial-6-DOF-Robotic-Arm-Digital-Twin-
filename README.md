@@ -151,6 +151,8 @@ Successful motion planning
 Verified Motion Pipeline
 
 The following pipeline has been successfully tested in simulation:
+
+```text
 Joint Goal
     ↓
 RViz2 MotionPlanning
@@ -168,9 +170,9 @@ JointTrajectoryController
 Gazebo Sim
     ↓
 6-DOF Robot Motion
-
+```
 Repository Structure:
-
+```text
 industrial_6dof_robot/
 │
 ├── src/
@@ -195,7 +197,7 @@ industrial_6dof_robot/
 │
 ├── .gitignore
 └── README.md
-
+```
 Software Environment:
 
 | Component         | Version / Platform |
@@ -213,19 +215,23 @@ Software Environment:
 
 Installation
 1. Clone the repository
+```text
 git clone https://github.com/shrirajchavan002-pixel/-Industrial-6-DOF-Robotic-Arm-Digital-Twin-
 
 cd industrial_6dof_robot
-
+```
 2. Source ROS 2 Jazzy
+```text
 source /opt/ros/jazzy/setup.bash
-
-3. Build the workspace
+```
+4. Build the workspace
+```text
 colcon build --symlink-install
-
-4. Source the workspace
+```
+6. Source the workspace
+```text
 source install/setup.bash
-
+```
 Launch Robot Visualization
 
 To visualize the robot model in RViz2:
@@ -233,24 +239,27 @@ To visualize the robot model in RViz2:
 ros2 launch industrial_robot_description display.launch.py
 
 Launch Gazebo Simulation:
+```text
 ros2 launch industrial_robot_simulation sim.launch.py
-
+```
 This starts the simulation environment and robot control stack.
 
 Verify Controllers:
+```text
 ros2 control list_controllers
-
+```
 Expected:
+```text
 arm_controller
 joint_state_broadcaster
-
+```
 Both controllers should be:
 active
 
 Direct Joint Trajectory Test
 
 A trajectory can be sent directly to the joint trajectory controller:
-
+```text
 ros2 topic pub --once \
 /arm_controller/joint_trajectory \
 trajectory_msgs/msg/JointTrajectory "{
@@ -262,23 +271,23 @@ trajectory_msgs/msg/JointTrajectory "{
     }
   ]
 }"
-
+```
 This command was verified to produce simulated robot motion.
-
+```text
 Launch MoveIt 2
-
+```
 Start the MoveIt planning node:
-
+```text
 ros2 launch industrial_robot_moveit_config move_group.launch.py
-
+```
 Then launch the MoveIt RViz interface:
-
+```text
 ros2 launch industrial_robot_moveit_config moveit_rviz.launch.py
-
+```
 A configured demo launch is also available:
-
+```text
 ros2 launch industrial_robot_moveit_config demo.launch.py
-
+```
 MoveIt Planning Workflow:
 1) Start Gazebo simulation.
 2) Start the MoveIt move_group node.
